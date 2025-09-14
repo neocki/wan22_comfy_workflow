@@ -25,8 +25,8 @@ NODES=(
 )
 
 WORKFLOWS=(
-    "https://www.dropbox.com/scl/fi/ljpk768wbq87qm1rv2hqu/wan22_14B_i2v_Q3KS_gguf.json?rlkey=o86wfazkyb96fjc5q32zkzl1c&st=fbo1niba&dl=1"
-    "https://www.dropbox.com/scl/fi/ljpk768wbq87qm1rv2hqu/wan22_14B_i2v_Q3KS_gguf.json?rlkey=o86wfazkyb96fjc5q32zkzl1c&st=g36e0lly&dl=1"
+    "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan22_14B_i2v_Q3KS_gguf.json"
+    "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan22_14B_i2v_Q5KM_gguf.json"
 )
 
 CHECKPOINT_MODELS=(
