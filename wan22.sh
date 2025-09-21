@@ -39,6 +39,7 @@ UNET_MODELS=(
 
 LORA_MODELS=(
     "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank32_bf16.safetensors"
+    "https://civitai.com/api/download/models/2177091?type=Model&format=Diffusers"
 )
 
 VAE_MODELS=(
@@ -181,16 +182,21 @@ function provisioning_has_valid_civitai_token() {
 
 # Download from $1 URL to $2 file path
 function provisioning_download() {
-    if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
-        auth_token="$HF_TOKEN"
-    elif 
-        [[ -n $CIVITAI_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
-        auth_token="$CIVITAI_TOKEN"
+    url="$1"
+    if [[ -n $HF_TOKEN && $url =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
+        auth_header="Authorization: Bearer $HF_TOKEN"
+    elif [[ -n $CIVITAI_TOKEN && $url =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
+        # append ?token= or &token=
+        sep='?'; [[ "$url" == *\?* ]] && sep='&'
+        url="${url}${sep}token=${CIVITAI_TOKEN}"
     fi
-    if [[ -n $auth_token ]];then
-        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+
+    if [[ -n $auth_header ]]; then
+        wget --header="$auth_header" -qnc --content-disposition --show-progress \
+             -e dotbytes="${3:-4M}" -P "$2" "$url"
     else
-        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        wget -qnc --content-disposition --show-progress \
+             -e dotbytes="${3:-4M}" -P "$2" "$url"
     fi
 }
 
