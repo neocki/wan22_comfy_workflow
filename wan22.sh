@@ -27,6 +27,7 @@ NODES=(
 WORKFLOWS=(
     "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan22_14B_i2v_Q3KS_gguf.json"
     "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan22_14B_i2v_Q5KM_gguf.json"
+    "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/Wan2.2%2Blora_nsfw.json"
 )
 
 CHECKPOINT_MODELS=(
@@ -40,6 +41,8 @@ UNET_MODELS=(
 LORA_MODELS=(
     "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank32_bf16.safetensors"
     "https://civitai.com/api/download/models/2177091?type=Model&format=Diffusers"
+    "https://civitai.com/api/download/models/2176505?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/2190476?type=Model&format=SafeTensor"
 )
 
 VAE_MODELS=(
