@@ -28,6 +28,7 @@ WORKFLOWS=(
     "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan22_14B_i2v_Q3KS_gguf.json"
     "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan22_14B_i2v_Q5KM_gguf.json"
     "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/Wan2.2%2Blora_nsfw.json"
+    "https://raw.githubusercontent.com/neocki/wan22_comfy_workflow/refs/heads/main/wan_fp8_workflow.json"
 )
 
 CHECKPOINT_MODELS=(
