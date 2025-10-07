@@ -22,6 +22,8 @@ NODES=(
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     "https://github.com/welltop-cn/ComfyUI-TeaCache"
     "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/o-l-l-i/ComfyUI-Olm-DragCrop"
+    "https://github.com/rgthree/rgthree-comfy"
 )
 
 WORKFLOWS=(
