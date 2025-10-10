@@ -1,8 +1,8 @@
 {
   "id": "e9390b97-0bcc-4dbc-95d8-c13275f0bfd8",
   "revision": 0,
-  "last_node_id": 87,
-  "last_link_id": 160,
+  "last_node_id": 97,
+  "last_link_id": 163,
   "nodes": [
     {
       "id": 59,
@@ -169,13 +169,13 @@
         336
       ],
       "flags": {},
-      "order": 18,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 130
+          "link": 162
         },
         {
           "name": "mask",
@@ -213,10 +213,10 @@
         }
       ],
       "properties": {
-        "aux_id": "kijai/ComfyUI-KJNodes",
+        "cnr_id": "comfyui-kjnodes",
         "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
         "Node name for S&R": "ImageResizeKJv2",
-        "cnr_id": "comfyui-kjnodes"
+        "aux_id": "kijai/ComfyUI-KJNodes"
       },
       "widgets_values": [
         480,
@@ -270,6 +270,985 @@
       "bgcolor": "#335"
     },
     {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        2278.9931640625,
+        -305.054443359375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 124
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            129
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 80,
+      "type": "UNETLoader",
+      "pos": [
+        -1457.6046142578125,
+        -136.6211395263672
+      ],
+      "size": [
+        346.7470703125,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            155
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "Wan2_2-I2V-A14B-HIGH_fp8_e5m2_scaled_KJ.safetensors",
+        "fp8_e5m2"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "PathchSageAttentionKJ",
+      "pos": [
+        -951.4759521484375,
+        56.60519790649414
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 156
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            138
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
+        "Node name for S&R": "PathchSageAttentionKJ",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "auto"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "ModelPatchTorchSettings",
+      "pos": [
+        -653.5736694335938,
+        64.78390502929688
+      ],
+      "size": [
+        307.443359375,
+        58
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 138
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            157
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
+        "Node name for S&R": "ModelPatchTorchSettings",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 66,
+      "type": "ModelPatchTorchSettings",
+      "pos": [
+        -653.5736694335938,
+        -85.21612548828125
+      ],
+      "size": [
+        307.443359375,
+        58
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 135
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            160
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
+        "Node name for S&R": "ModelPatchTorchSettings",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 81,
+      "type": "UNETLoader",
+      "pos": [
+        -1455.691162109375,
+        30.81403923034668
+      ],
+      "size": [
+        346.7470703125,
+        82
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            156
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "Wan2_2-I2V-A14B-LOW_fp8_e5m2_scaled_KJ.safetensors",
+        "fp8_e5m2"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "Note",
+      "pos": [
+        1668.6029052734375,
+        598.228759765625
+      ],
+      "size": [
+        408.1531066894531,
+        299.375732421875
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "A woman is undressing and getting fully naked. she reveal her naked perfectly shaped medium size boobs. The woman present her nudity in rare grace. The camera zooms out revealing her full body.\nThe video ends on a wide shot of the woman.\n\nThe woman turn around while the camera zooms out revaling the woman naked and pantless. It reveal the perfect bubble ass of the woman. \nThe woman look at the camera and make a kiss while getting rid of her topm revealing her perfectly shaped medium size boobs.\nThe video ends on a wide shot of the woman completely naked.\n\n\nThe woman goes on the bed on her left on all four. She reveal being pantless naked with a shaved pussy. She puts her butt up revealing a perfectly shaped bubble ass.  The woman is waiting for sex. The woman keep looking hungrily at the camera.\nthe camera move on the left and zoom out, following the character movement and revealing the woman from her side and the bed.\nThe woman end with her head between her arms, legs spreaded and arched back and butt in the air . \n\n\nThe woman gracefully undress herself, revealing her naked perfect body. She has perfectly shaped medium size breast, her muscles are visible but not excessive. She is beautifull and gracefull. \nThe woman is teasingly licking her thumb while touching her breast with the other hand. She has a subtle but sexy smile.\nThe camera zoom out revealing the entire body of the woman. She is presenting her nudity in beautifull grace. \nThe video ends on a wide shot of the woman being completely naked. It reveals the woman shaved pussy"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 54,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        427.809814453125,
+        -87.65420532226562
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 141
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            125
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        5.000000000000001
+      ]
+    },
+    {
+      "id": 55,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        490,
+        60
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 143
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            123
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        5.000000000000001
+      ]
+    },
+    {
+      "id": 85,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -216.67039489746094,
+        37.511024475097656
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 157
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            158
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "DR34ML4Y_I2V_14B_LOW.safetensors",
+        1.0000000000000002
+      ]
+    },
+    {
+      "id": 84,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -231.02198791503906,
+        -114.61579895019531
+      ],
+      "size": [
+        278.63299560546875,
+        82
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 160
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            159
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "DR34ML4Y_I2V_14B_HIGH.safetensors",
+        1.0000000000000002
+      ]
+    },
+    {
+      "id": 87,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1330.884521484375,
+        1058.3455810546875
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "In a single, unbroken shot with a smooth tracking camera that begins tight on the input portrait photo and gradually widens to a medium frame with a faint film grain to heighten intimacy, the subject—a woman with a lithe figure and tousled hair, wearing a delicate silk robe—performs a slow, sensual undressing in a softly lit bedroom at dusk, the room adorned with sheer curtains and a plush velvet chaise, creating a warm, inviting atmosphere. The sequence starts with the portrait’s sultry expression, transitioning seamlessly as she lets the robe slip from her shoulders, her fingers tracing the fabric’s edge as it glides down her arms, pooling at her feet to reveal her nude form, her body shifting slightly to catch the light as she steps forward with a confident, graceful sway, her skin glowing with subtle contours, the action unfolding continuously without cuts to emphasize the fluidity of her movements. The cinematography employs gentle, diffused lighting from a single bedside lamp, casting soft shadows that caress her curves, evoking a tender yet provocative tone. The color palette weaves warm golds and dusky pinks against the creamy neutrals of the room, with her skin’s natural tones standing out in delicate contrast, enhancing the scene’s intimate allure. Props are limited to the silk robe and the chaise, with no additional objects introduced.\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 63,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        842.2100219726562,
+        -156.3496856689453
+      ],
+      "size": [
+        625.7509765625,
+        953.7509765625
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 129
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "1.7.2",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite"
+      },
+      "widgets_values": {
+        "frame_rate": 16,
+        "loop_count": 0,
+        "filename_prefix": "%date:yyyy-MM-dd-hh%_wan22_",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "2025-10-08-05_wan22__00010.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 16,
+            "workflow": "2025-10-08-05_wan22__00010.png",
+            "fullpath": "/workspace/ComfyUI/output/2025-10-08-05_wan22__00010.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 83,
+      "type": "CLIPTextEncode",
+      "pos": [
+        880.4240112304688,
+        839.9569091796875
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "The woman gracefully undress herself, revealing her naked perfect body. She has perfectly shaped medium size breast, her muscles are visible but not excessive. She is beautifull and gracefull. \nThe woman is teasingly licking her thumb while touching her breast with the other hand. She has a subtle but sexy smile.\nThe camera zoom out revealing the entire body of the woman. She is presenting her nudity in beautifull grace. \nThe video ends on a wide shot of the woman being completely naked. It reveals the woman pink hair pussy"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 90,
+      "type": "CLIPTextEncode",
+      "pos": [
+        831.2134399414062,
+        1139.99609375
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bl0wj0b\nIn a single, unbroken shot with a tracking camera that starts tight on the input portrait photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible, the subject transitions to an explicit, sensual act. The sequence begins with the portrait’s piercing, seductive gaze, her eyes locked on the camera, then seamlessly shifts as she steps back slowly, her fingers languidly peeling the straps of her camisole down her shoulders, letting the delicate fabric glide to the floor to reveal her bare skin, her movements deliberate as she kneels gracefully, her hands gently grasping an unseen male partner’s erect penis, her lips parting softly as she begins a blowjob, her head tilting with slow, rhythmic motions, each movement measured and sensual, maintaining unwavering eye contact with the camera, the action unfolding continuously without cuts to emphasize the languorous, seductive flow of her gestures. The cinematography employs warm, diffused lighting that casts gentle shadows across her skin, tracing her facial features and curves, creating an intimate, provocative tone. The color palette weaves soft pinks and warm golds, her skin’s natural glow standing out vividly, amplifying the scene’s erotic focus. Props are limited to the camisole, with no additional objects introduced.\n\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 76,
+      "type": "PrimitiveInt",
+      "pos": [
+        485.4208984375,
+        -347.0292053222656
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            151,
+            152
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "PrimitiveInt"
+      },
+      "widgets_values": [
+        8,
+        "fixed"
+      ]
+    },
+    {
+      "id": 77,
+      "type": "PrimitiveInt",
+      "pos": [
+        453.6535339355469,
+        -207.72418212890625
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            153,
+            154
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "PrimitiveInt"
+      },
+      "widgets_values": [
+        4,
+        "fixed"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        110,
+        -110
+      ],
+      "size": [
+        278.63299560546875,
+        82
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 159
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            141
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
+        2.5000000000000004
+      ]
+    },
+    {
+      "id": 70,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        110,
+        40
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 158
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            143
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
+        1.3500000000000003
+      ]
+    },
+    {
+      "id": 58,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1843.7493896484375,
+        -430.39007568359375
+      ],
+      "size": [
+        304.748046875,
+        632.748046875
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 123
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 121
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 122
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 113
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 152
+        },
+        {
+          "name": "start_at_step",
+          "type": "INT",
+          "widget": {
+            "name": "start_at_step"
+          },
+          "link": 154
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            124
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "disable",
+        0,
+        "fixed",
+        6,
+        1,
+        "lcm",
+        "beta",
+        3,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 57,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1490.2965087890625,
+        -410.10614013671875
+      ],
+      "size": [
+        304.748046875,
+        632.748046875
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 125
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 118
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 119
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 150
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 151
+        },
+        {
+          "name": "end_at_step",
+          "type": "INT",
+          "widget": {
+            "name": "end_at_step"
+          },
+          "link": 153
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            113
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        263556391362254,
+        "randomize",
+        6,
+        1,
+        "lcm",
+        "beta",
+        0,
+        3,
+        "enable"
+      ]
+    },
+    {
+      "id": 65,
+      "type": "PathchSageAttentionKJ",
+      "pos": [
+        -941.907958984375,
+        -91.38899230957031
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 155
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            135
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
+        "Node name for S&R": "PathchSageAttentionKJ",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "auto"
+      ]
+    },
+    {
       "id": 50,
       "type": "WanImageToVideo",
       "pos": [
@@ -281,7 +1260,7 @@
         210
       ],
       "flags": {},
-      "order": 21,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -369,871 +1348,40 @@
       ]
     },
     {
-      "id": 8,
-      "type": "VAEDecode",
+      "id": 93,
+      "type": "PreviewImage",
       "pos": [
-        2278.9931640625,
-        -305.054443359375
+        469.951416015625,
+        1380.0325927734375
       ],
       "size": [
-        210,
-        46
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 124
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 76
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            129
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 83,
-      "type": "CLIPTextEncode",
-      "pos": [
-        880.4240112304688,
-        839.9569091796875
-      ],
-      "size": [
-        422.84503173828125,
-        164.31304931640625
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": []
-        }
-      ],
-      "title": "CLIP Text Encode (Positive Prompt)",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "The woman gracefully undress herself, revealing her naked perfect body. She has perfectly shaped medium size breast, her muscles are visible but not excessive. She is beautifull and gracefull. \nThe woman is teasingly licking her thumb while touching her breast with the other hand. She has a subtle but sexy smile.\nThe camera zoom out revealing the entire body of the woman. She is presenting her nudity in beautifull grace. \nThe video ends on a wide shot of the woman being completely naked. It reveals the woman pink hair pussy"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 80,
-      "type": "UNETLoader",
-      "pos": [
-        -1457.6046142578125,
-        -136.6211395263672
-      ],
-      "size": [
-        346.7470703125,
-        82
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            155
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "UNETLoader",
-        "models": [
-          {
-            "name": "wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
-            "directory": "diffusion_models"
-          }
-        ]
-      },
-      "widgets_values": [
-        "Wan2_2-I2V-A14B-HIGH_fp8_e5m2_scaled_KJ.safetensors",
-        "fp8_e5m2"
-      ]
-    },
-    {
-      "id": 65,
-      "type": "PathchSageAttentionKJ",
-      "pos": [
-        -941.907958984375,
-        -91.38899230957031
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 155
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            135
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
-        "Node name for S&R": "PathchSageAttentionKJ",
-        "cnr_id": "comfyui-kjnodes"
-      },
-      "widgets_values": [
-        "auto"
-      ]
-    },
-    {
-      "id": 67,
-      "type": "PathchSageAttentionKJ",
-      "pos": [
-        -951.4759521484375,
-        56.60519790649414
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 156
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            138
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
-        "Node name for S&R": "PathchSageAttentionKJ",
-        "cnr_id": "comfyui-kjnodes"
-      },
-      "widgets_values": [
-        "auto"
-      ]
-    },
-    {
-      "id": 69,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        110,
-        -110
-      ],
-      "size": [
-        278.63299560546875,
-        82
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 159
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            141
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
-        3.0000000000000004
-      ]
-    },
-    {
-      "id": 70,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        110,
-        40
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 158
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            143
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
-        1.5000000000000002
-      ]
-    },
-    {
-      "id": 68,
-      "type": "ModelPatchTorchSettings",
-      "pos": [
-        -653.5736694335938,
-        64.78390502929688
-      ],
-      "size": [
-        307.443359375,
-        58
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 138
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            157
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
-        "Node name for S&R": "ModelPatchTorchSettings",
-        "cnr_id": "comfyui-kjnodes"
-      },
-      "widgets_values": [
-        true
-      ]
-    },
-    {
-      "id": 66,
-      "type": "ModelPatchTorchSettings",
-      "pos": [
-        -653.5736694335938,
-        -85.21612548828125
-      ],
-      "size": [
-        307.443359375,
-        58
-      ],
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 135
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            160
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "ver": "a6b867b63a29ca48ddb15c589e17a9f2d8530d57",
-        "Node name for S&R": "ModelPatchTorchSettings",
-        "cnr_id": "comfyui-kjnodes"
-      },
-      "widgets_values": [
-        true
-      ]
-    },
-    {
-      "id": 58,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        1843.7493896484375,
-        -430.39007568359375
-      ],
-      "size": [
-        304.748046875,
-        632.748046875
+        415.06829833984375,
+        387.3544921875
       ],
       "flags": {},
       "order": 29,
       "mode": 0,
       "inputs": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 123
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 121
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 122
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 113
-        },
-        {
-          "name": "steps",
-          "type": "INT",
-          "widget": {
-            "name": "steps"
-          },
-          "link": 152
-        },
-        {
-          "name": "start_at_step",
-          "type": "INT",
-          "widget": {
-            "name": "start_at_step"
-          },
-          "link": 154
+          "name": "images",
+          "type": "IMAGE",
+          "link": 163
         }
       ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            124
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "disable",
-        0,
-        "fixed",
-        6,
-        1,
-        "lcm",
-        "beta",
-        3,
-        10000,
-        "disable"
-      ]
-    },
-    {
-      "id": 57,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        1490.2965087890625,
-        -410.10614013671875
-      ],
-      "size": [
-        304.748046875,
-        632.748046875
-      ],
-      "flags": {},
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 125
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 118
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 119
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 150
-        },
-        {
-          "name": "steps",
-          "type": "INT",
-          "widget": {
-            "name": "steps"
-          },
-          "link": 151
-        },
-        {
-          "name": "end_at_step",
-          "type": "INT",
-          "widget": {
-            "name": "end_at_step"
-          },
-          "link": 153
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            113
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "enable",
-        723052545978747,
-        "randomize",
-        6,
-        1,
-        "lcm",
-        "beta",
-        0,
-        3,
-        "enable"
-      ]
-    },
-    {
-      "id": 76,
-      "type": "PrimitiveInt",
-      "pos": [
-        485.4208984375,
-        -347.0292053222656
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            151,
-            152
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.47",
-        "Node name for S&R": "PrimitiveInt"
-      },
-      "widgets_values": [
-        6,
-        "fixed"
-      ]
-    },
-    {
-      "id": 77,
-      "type": "PrimitiveInt",
-      "pos": [
-        453.6535339355469,
-        -207.72418212890625
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            153,
-            154
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.47",
-        "Node name for S&R": "PrimitiveInt"
-      },
-      "widgets_values": [
-        3,
-        "fixed"
-      ]
-    },
-    {
-      "id": 81,
-      "type": "UNETLoader",
-      "pos": [
-        -1455.691162109375,
-        30.81403923034668
-      ],
-      "size": [
-        346.7470703125,
-        82
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            156
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "UNETLoader",
-        "models": [
-          {
-            "name": "wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
-            "directory": "diffusion_models"
-          }
-        ]
-      },
-      "widgets_values": [
-        "Wan2_2-I2V-A14B-LOW_fp8_e5m2_scaled_KJ.safetensors",
-        "fp8_e5m2"
-      ]
-    },
-    {
-      "id": 75,
-      "type": "Note",
-      "pos": [
-        1668.6029052734375,
-        598.228759765625
-      ],
-      "size": [
-        408.1531066894531,
-        299.375732421875
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
       "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "A woman is undressing and getting fully naked. she reveal her naked perfectly shaped medium size boobs. The woman present her nudity in rare grace. The camera zooms out revealing her full body.\nThe video ends on a wide shot of the woman.\n\nThe woman turn around while the camera zooms out revaling the woman naked and pantless. It reveal the perfect bubble ass of the woman. \nThe woman look at the camera and make a kiss while getting rid of her topm revealing her perfectly shaped medium size boobs.\nThe video ends on a wide shot of the woman completely naked.\n\n\nThe woman goes on the bed on her left on all four. She reveal being pantless naked with a shaved pussy. She puts her butt up revealing a perfectly shaped bubble ass.  The woman is waiting for sex. The woman keep looking hungrily at the camera.\nthe camera move on the left and zoom out, following the character movement and revealing the woman from her side and the bed.\nThe woman end with her head between her arms, legs spreaded and arched back and butt in the air . \n\n\nThe woman gracefully undress herself, revealing her naked perfect body. She has perfectly shaped medium size breast, her muscles are visible but not excessive. She is beautifull and gracefull. \nThe woman is teasingly licking her thumb while touching her breast with the other hand. She has a subtle but sexy smile.\nThe camera zoom out revealing the entire body of the woman. She is presenting her nudity in beautifull grace. \nThe video ends on a wide shot of the woman being completely naked. It reveals the woman shaved pussy"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 54,
-      "type": "ModelSamplingSD3",
-      "pos": [
-        427.809814453125,
-        -87.65420532226562
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 141
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            125
-          ]
-        }
-      ],
       "properties": {
         "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "ModelSamplingSD3"
+        "ver": "0.3.47",
+        "Node name for S&R": "PreviewImage"
       },
-      "widgets_values": [
-        5.000000000000001
-      ]
+      "widgets_values": []
     },
     {
-      "id": 55,
-      "type": "ModelSamplingSD3",
-      "pos": [
-        490,
-        60
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 143
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            123
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "ModelSamplingSD3"
-      },
-      "widgets_values": [
-        5.000000000000001
-      ]
-    },
-    {
-      "id": 85,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -216.67039489746094,
-        37.511024475097656
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 157
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            158
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "DR34ML4Y_I2V_14B_LOW.safetensors",
-        1.0000000000000002
-      ]
-    },
-    {
-      "id": 84,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -231.02198791503906,
-        -114.61579895019531
-      ],
-      "size": [
-        278.63299560546875,
-        82
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 160
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            159
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "DR34ML4Y_I2V_14B_HIGH.safetensors",
-        1.0000000000000002
-      ]
-    },
-    {
-      "id": 87,
+      "id": 95,
       "type": "CLIPTextEncode",
       "pos": [
-        1316.750244140625,
-        1081.177978515625
-      ],
-      "size": [
-        422.84503173828125,
-        164.31304931640625
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": []
-        }
-      ],
-      "title": "CLIP Text Encode (Positive Prompt)",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.46",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "In a single, unbroken shot with a smooth tracking camera that begins tight on the input portrait photo and gradually widens to a medium frame with a faint film grain to heighten intimacy, the subject—a woman with a lithe figure and tousled hair, wearing a delicate silk robe—performs a slow, sensual undressing in a softly lit bedroom at dusk, the room adorned with sheer curtains and a plush velvet chaise, creating a warm, inviting atmosphere. The sequence starts with the portrait’s sultry expression, transitioning seamlessly as she lets the robe slip from her shoulders, her fingers tracing the fabric’s edge as it glides down her arms, pooling at her feet to reveal her nude form, her body shifting slightly to catch the light as she steps forward with a confident, graceful sway, her skin glowing with subtle contours, the action unfolding continuously without cuts to emphasize the fluidity of her movements. The cinematography employs gentle, diffused lighting from a single bedside lamp, casting soft shadows that caress her curves, evoking a tender yet provocative tone. The color palette weaves warm golds and dusky pinks against the creamy neutrals of the room, with her skin’s natural tones standing out in delicate contrast, enhancing the scene’s intimate allure. Props are limited to the silk robe and the chaise, with no additional objects introduced.\n\n"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        407.56201171875,
-        186.2650909423828
+        914.2133178710938,
+        1379.312744140625
       ],
       "size": [
         422.84503173828125,
@@ -1246,7 +1394,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 74
+          "link": null
         }
       ],
       "outputs": [
@@ -1254,9 +1402,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "slot_index": 0,
-          "links": [
-            97
-          ]
+          "links": []
         }
       ],
       "title": "CLIP Text Encode (Positive Prompt)",
@@ -1266,7 +1412,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "bl0wj0b\nIn a single, unbroken shot with a close-up tracking camera that starts tight on the input portrait photo and subtly shifts to maintain an intimate frame, with a faint film grain to heighten the raw sensuality, the subject—a woman with a lithe figure and tousled hair, clad in a delicate lace camisole—performs an explicit act in a softly lit bedroom at dusk, the room adorned with gauzy curtains and a sleek, dark wooden bed, crafting a warm, secluded atmosphere. The sequence begins with the portrait’s piercing, seductive gaze, transitioning seamlessly as her eyes remain locked on the camera, her fingers slowly peeling the camisole’s straps down her shoulders, letting the fabric slip to reveal her bare skin, then leaning forward slightly as she kneels, her hands gently grasping an unseen male partner’s erect penis, her lips parting as she begins a blowjob, her movements slow and deliberate, her head tilting rhythmically while maintaining unwavering eye contact with the camera, the action unfolding continuously without cuts to emphasize the intensity of her gaze and the fluidity of her motions. The cinematography employs warm, diffused lighting from a single bedside lamp, casting gentle shadows that trace her facial features and bare shoulders, creating a provocative yet intimate tone. The color palette weaves soft pinks and warm golds with the muted grays of the room, her skin’s natural glow contrasting subtly with the darker lace and surroundings, amplifying the scene’s erotic focus. Props are limited to the camisole, with no additional objects introduced.\n\n\n"
+        "d0gg1e\nIn a single, unbroken shot with a tracking camera that starts tight on the input portrait photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible and the camera positioned in front of her, the subject transitions to an explicit, sensual act. The sequence begins with the portrait’s piercing, seductive gaze, her eyes locked on the camera, then seamlessly shifts as she steps back slowly, her fingers languidly peeling the straps of a sheer, sexy bodysuit—its low-cut design revealing her breasts through transparent lace—down her shoulders, letting the delicate fabric glide to the floor to expose her bare skin, her movements deliberate as she turns slightly, lowering herself onto her hands and knees on a soft surface, arching her back to raise her ass provocatively, her hips tilting upward as she positions herself for a doggystyle fuck, an unseen male partner entering her from behind, her body rocking gently with slow, rhythmic thrusts, her face angled toward the camera with unwavering eye contact, her expressions shifting between pleasure and intensity, the action unfolding continuously without cuts to emphasize the languorous, seductive flow of her movements. The cinematography employs warm, diffused lighting that casts gentle shadows across her skin, tracing her facial features and curves, creating an intimate, provocative tone. The color palette weaves soft pinks and warm golds, her skin’s natural glow standing out vividly, amplifying the scene’s erotic focus. Props are limited to the bodysuit, with no additional objects introduced.\n\n"
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -1275,15 +1421,17 @@
       "id": 7,
       "type": "CLIPTextEncode",
       "pos": [
-        413,
-        389
+        397.14251708984375,
+        398.2577819824219
       ],
       "size": [
         425.27801513671875,
         180.6060791015625
       ],
-      "flags": {},
-      "order": 15,
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1315,18 +1463,266 @@
       "bgcolor": "#533"
     },
     {
+      "id": 89,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1340.165771484375,
+        1137.680419921875
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "In a single, unbroken shot with a tracking camera that starts tight on the input mirror selfie photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible, the subject transitions to an explicit, sensual act. The sequence begins with the selfie’s confident pose, her eyes locked on her reflection, then seamlessly shifts as she steps back slowly, her fingers languidly lifting her top, letting it glide over her shoulders to reveal her bare breasts, the fabric slipping to the floor with a soft rustle, then unbuttoning her pants with deliberate care, easing them down her thighs inch by inch to unveil her nude form, her hand drifting to her pussy, fingers tracing slow, teasing strokes that gradually deepen with a sensual rhythm, her hips swaying gently as she performs a provocative \"boob show,\" caressing and lifting her breasts with tender precision, maintaining unwavering eye contact with her reflection, the action unfolding continuously without cuts to emphasize the languorous, seductive flow of her movements. The cinematography employs soft, warm lighting that casts gentle shadows across her skin, creating an intimate, provocative tone. The color palette blends the warm flush of her skin with subtle neutral tones, her nude form standing out vividly, heightening the scene’s erotic tension. Props are limited to the top and pants, with no additional objects introduced.\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 96,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1366.3858642578125,
+        1392.141845703125
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "In a single, unbroken shot with a tracking camera that starts tight on the input portrait photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible and the camera positioned in front of her, the subject transitions to an explicit, sensual act. The sequence begins with the portrait’s piercing, seductive gaze, her eyes locked on the camera, then seamlessly shifts as she steps back slowly, her fingers languidly tugging at a raunchy, overtly sexual underwear set—featuring a black fishnet bra with cut-out nipple holes, barely containing her breasts, connected by a thin, black glittery chain draped across her midriff to a matching black fishnet thong with a high-riding black garter belt strapped tightly around her thighs, exposing her curves with shameless allure—peeling the bra straps down her shoulders and unhooking the garter, letting the bold ensemble slide off her body to the floor, fully revealing her nude form, her movements deliberate as she lowers herself onto a soft surface, reclining slightly with her legs parted, her hand drifting down her stomach to her pussy, fingers tracing slow, teasing strokes that gradually deepen into rhythmic, sensual masturbation, her hips arching subtly as her other hand caresses her breasts, squeezing firmly, her face angled toward the camera with unwavering eye contact, her expressions shifting between raw pleasure and bold intensity, the action unfolding continuously without cuts to emphasize the languorous, seductive flow of her movements. The cinematography employs warm, diffused lighting that casts gentle shadows across her skin, tracing her facial features and curves, creating an intimate, provocative tone. The color palette weaves deep blacks and subtle sparkles from the fishnet against the warm flush of her skin, her nude form standing out vividly, amplifying the scene’s unapologetically sexual focus. Props are limited to the black fishnet bra, thong, and garter belt, with no additional objects introduced.\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 97,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1363.6466064453125,
+        1431.2513427734375
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "In a single, unbroken shot with a tracking camera that starts tight on the input portrait photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible and the camera positioned in front of her, the subject transitions to an explicit, sensual act. The sequence begins with the portrait’s piercing, seductive gaze, her eyes locked on the camera, then seamlessly shifts as she steps back slowly, her fingers smoothly peeling the straps of a raunchy, overtly sexual underwear set—featuring a black fishnet bra with cut-out nipple holes, barely containing her breasts, connected by a thin, black glittery chain across her midriff to a matching black fishnet thong with a high-riding black garter belt strapped around her thighs, exposing her curves with shameless allure—letting the bold ensemble slide off her body to the floor, fully revealing her nude form, her movements controlled as she lowers herself onto a soft surface, reclining slightly with her legs parted, her hand gliding to her pussy, fingers tracing slow, deliberate strokes that deepen into rhythmic, sensual masturbation, her other hand resting on her breast, squeezing gently, her face angled toward the camera with unwavering eye contact, her expressions conveying raw pleasure and intensity, the action unfolding continuously without cuts to emphasize the smooth, seductive flow of her movements. The cinematography employs warm, diffused lighting that casts gentle shadows across her skin, tracing her facial features and curves, creating an intimate, provocative tone. The color palette weaves deep blacks and subtle sparkles from the fishnet against the warm flush of her skin, her nude form standing out vividly, amplifying the scene’s unapologetically sexual focus. Props are limited to the black fishnet bra, thong, and garter belt, with no additional objects introduced.\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 88,
+      "type": "CLIPTextEncode",
+      "pos": [
+        775.5198974609375,
+        1029.90673828125
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bl0wj0b\nIn a single, unbroken shot with a close-up tracking camera that starts tight on the input portrait photo and subtly shifts to maintain an intimate frame, with a faint film grain to heighten the raw sensuality, the subject—a woman with a lithe figure and tousled hair, clad in a delicate lace camisole—performs an explicit act in a softly lit bedroom at dusk, the room adorned with gauzy curtains and a sleek, dark wooden bed, crafting a warm, secluded atmosphere. The sequence begins with the portrait’s piercing, seductive gaze, transitioning seamlessly as her eyes remain locked on the camera, her fingers slowly peeling the camisole’s straps down her shoulders, letting the fabric slip to reveal her bare skin, then leaning forward slightly as she kneels, her hands gently grasping an unseen male partner’s erect penis, her lips parting as she begins a blowjob, her movements slow and deliberate, her head tilting rhythmically while maintaining unwavering eye contact with the camera, the action unfolding continuously without cuts to emphasize the intensity of her gaze and the fluidity of her motions. The cinematography employs warm, diffused lighting from a single bedside lamp, casting gentle shadows that trace her facial features and bare shoulders, creating a provocative yet intimate tone. The color palette weaves soft pinks and warm golds with the muted grays of the room, her skin’s natural glow contrasting subtly with the darker lace and surroundings, amplifying the scene’s erotic focus. Props are limited to the camisole, with no additional objects introduced.\n\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 91,
+      "type": "CLIPTextEncode",
+      "pos": [
+        841.011962890625,
+        1133.1719970703125
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bl0wj0b\nIn a single, unbroken shot with a tracking camera that starts tight on the input portrait photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible, the subject transitions to an explicit, sensual act. The sequence begins with the portrait’s piercing, seductive gaze, her eyes locked on the camera, then seamlessly shifts as she steps back slowly, her fingers languidly peeling the straps of a sheer, sexy bodysuit—its low-cut design revealing her breasts through transparent lace—down her shoulders, letting the delicate fabric glide to the floor to expose her bare skin, her movements deliberate as she kneels gracefully, her hands gently grasping an unseen male partner’s erect penis, her lips parting softly as she begins a blowjob, her head tilting with slow, rhythmic motions, each movement measured and sensual, maintaining unwavering eye contact with the camera, the action unfolding continuously without cuts to emphasize the languorous, seductive flow of her gestures. The cinematography employs warm, diffused lighting that casts gentle shadows across her skin, tracing her facial features and curves, creating an intimate, provocative tone. The color palette weaves soft pinks and warm golds, her skin’s natural glow standing out vividly, amplifying the scene’s erotic focus. Props are limited to the bodysuit, with no additional objects introduced.\n\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        407.56201171875,
+        186.2650909423828
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            97
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bl0wj0b\nIn a single, unbroken shot with a tracking camera that starts tight on the input portrait photo and subtly pulls back to a medium-wide frame to keep the woman’s entire body in view, her face always visible, the subject transitions to an explicit, sensual act. The sequence begins with the portrait’s piercing, seductive gaze, her eyes locked on the camera, then seamlessly shifts as she steps back slowly, her fingers languidly peeling the straps of a sheer, sexy bodysuit—its low-cut design revealing her breasts through transparent lace—down her shoulders, letting the delicate fabric glide to the floor to expose her bare skin, her movements deliberate as she kneels gracefully, her hands gently grasping an unseen male partner’s erect penis, her lips parting softly as she begins a blowjob, her head tilting with slow, rhythmic motions, each movement measured and sensual, maintaining unwavering eye contact with the camera, the action unfolding continuously without cuts to emphasize the languorous, seductive flow of her gestures. The cinematography employs warm, diffused lighting that casts gentle shadows across her skin, tracing her facial features and curves, creating an intimate, provocative tone. The color palette weaves soft pinks and warm golds, her skin’s natural glow standing out vividly, amplifying the scene’s erotic focus. Props are limited to the bodysuit, with no additional objects introduced.\n\n\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
       "id": 52,
       "type": "LoadImage",
       "pos": [
-        -50,
-        550
+        -603.956787109375,
+        614.94677734375
       ],
       "size": [
         450,
         540
       ],
       "flags": {},
-      "order": 13,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1335,7 +1731,7 @@
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            130
+            161
           ]
         },
         {
@@ -1351,87 +1747,103 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "lore-spoilers-will-ambessa-meet-vi-and-caitlyn-in-season-2-v0-eh5yz8we86ic1.png",
+        "pasted/image (3).png",
         "image"
       ]
     },
     {
-      "id": 63,
-      "type": "VHS_VideoCombine",
+      "id": 92,
+      "type": "OlmDragCrop",
       "pos": [
-        842.2100219726562,
-        -156.3496856689453
+        -106.927734375,
+        687.2679443359375
       ],
       "size": [
-        625.7509765625,
-        953.7509765625
+        360,
+        861.6666870117188
       ],
       "flags": {},
-      "order": 31,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
+          "name": "image",
           "type": "IMAGE",
-          "link": 129
+          "link": 161
         },
         {
-          "name": "audio",
+          "name": "mask",
           "shape": 7,
-          "type": "AUDIO",
-          "link": null
-        },
-        {
-          "name": "meta_batch",
-          "shape": 7,
-          "type": "VHS_BatchManager",
-          "link": null
-        },
-        {
-          "name": "vae",
-          "shape": 7,
-          "type": "VAE",
+          "type": "MASK",
           "link": null
         }
       ],
       "outputs": [
         {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            162,
+            163
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "CROP_JSON",
+          "type": "STRING",
           "links": null
         }
       ],
       "properties": {
-        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite",
-        "ver": "1.7.2",
-        "Node name for S&R": "VHS_VideoCombine",
-        "cnr_id": "comfyui-videohelpersuite"
+        "aux_id": "o-l-l-i/ComfyUI-Olm-DragCrop",
+        "ver": "5e286e835bb6b36e610ee657e51e770a9eae207d",
+        "Node name for S&R": "OlmDragCrop",
+        "dragStart": [
+          73.01587301587301,
+          85.5026455026455
+        ],
+        "dragEnd": [
+          188.04232804232805,
+          200.52910052910053
+        ],
+        "actualImageWidth": 3024,
+        "actualImageHeight": 4032,
+        "crop_left": 690,
+        "crop_right": 1247,
+        "crop_top": 808,
+        "crop_bottom": 2137,
+        "crop_width": 1087.0792999676642,
+        "crop_height": 1087.0792999676642,
+        "snapValue": "none",
+        "aspectRatioString": "1",
+        "aspectLockEnabled": true,
+        "infoDisplayEnabled": true,
+        "box_color": "#d5ff6b",
+        "lastResolution": "3024x4032"
       },
-      "widgets_values": {
-        "frame_rate": 16,
-        "loop_count": 0,
-        "filename_prefix": "%date:yyyy-MM-dd-hh%_wan22_",
-        "format": "video/h264-mp4",
-        "pix_fmt": "yuv420p",
-        "crf": 19,
-        "save_metadata": true,
-        "trim_to_audio": false,
-        "pingpong": false,
-        "save_output": true,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "2025-10-04-01_wan22__00026.mp4",
-            "subfolder": "",
-            "type": "output",
-            "format": "video/h264-mp4",
-            "frame_rate": 16,
-            "workflow": "2025-10-04-01_wan22__00026.png",
-            "fullpath": "/workspace/ComfyUI/output/2025-10-04-01_wan22__00026.mp4"
-          }
-        }
-      }
+      "widgets_values": [
+        1759890516734,
+        690,
+        1247,
+        808,
+        2137,
+        1087,
+        1087,
+        3024,
+        4032,
+        "none",
+        "1",
+        true,
+        "set_ratio",
+        "refresh",
+        null,
+        "Lime",
+        "reset"
+      ]
     }
   ],
   "links": [
@@ -1552,14 +1964,6 @@
       8,
       0,
       63,
-      0,
-      "IMAGE"
-    ],
-    [
-      130,
-      52,
-      0,
-      64,
       0,
       "IMAGE"
     ],
@@ -1706,6 +2110,30 @@
       84,
       0,
       "MODEL"
+    ],
+    [
+      161,
+      52,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      162,
+      92,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      163,
+      92,
+      0,
+      93,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -1752,10 +2180,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9197589853091458,
+      "scale": 0.5710979660537033,
       "offset": [
-        180.09766803851159,
-        -215.99079756189238
+        390.9304861350485,
+        -175.2543937268638
       ]
     },
     "frontendVersion": "1.23.4",
