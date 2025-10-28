@@ -24,6 +24,7 @@ NODES=(
     "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/o-l-l-i/ComfyUI-Olm-DragCrop"
     "https://github.com/rgthree/rgthree-comfy"
+    "https://github.com/thibaultsoubeste/comfyui-promptselector"
 )
 
 WORKFLOWS=(
